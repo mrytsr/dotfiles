@@ -1,0 +1,111 @@
+#!/bin/bash
+
+comm=`basename ${0}`
+if [ x"${comm}" = x"smysql-passwd" ]
+then
+
+    echo 'enter mysql passwd:'
+    read mysql_passwd
+    echo 'enter [your passwd]:'
+    echo ${mysql_passwd}|openssl enc -aes256 -e -a|xargs| tr -d ' '|sed 's/^/aes256:/'
+
+else
+
+config_file=~/.smysql/config
+host_arg=${1}
+
+source <(\
+    grep -v '^\s*#' ${config_file}|\
+    sed '$a\ ' |\
+    grep -m1 -iA20 "^ *host  *${host_arg} *\(\#.*\)\?$" |\
+    grep -m1 -B20 "^ *$"|\
+    sed 's/^ *\([^ ]\{1,\}\) *\([^ ]\{1,\}\) *\(#.*\)\{0,1\}$/\1=\2/'\
+    )
+
+if [ x"${host}" = x"" ]
+then
+    echo "smysql: Could not resolve hostname ${host_arg}: Name or service not known"
+    exit
+fi
+
+if [ x"${user}" = x"" ]
+then
+    echo 'user ???'
+    exit
+fi
+
+if [ x"${hostname}" = x"" ]
+then
+    hostname=localhost
+fi
+
+if [ x"${port}" = x"" ]
+then
+    port=3306
+fi
+
+param_database="test"
+if [ ! x"${database}" = x"" ]
+then
+    param_database=-D${database}
+fi
+
+echo "passwd: ${passwd}" >&2
+if [ x"${passwd}" = x"" ]
+then
+    echo "[ ${host} ] "${comm:1} -u${user} -P${port} -p -h${hostname} ${param_database} >&2
+    echo "enter mysql passwd" >&2
+else
+    if [ x`echo ${passwd}|grep -o "^aes256:"` == x'aes256:' ]
+    then
+        echo "[ ${host} ] "${comm:1} -u${user} -P${port} -p AES256-decode\([your passwd]\) -h${hostname} ${param_database} >&2
+        echo "enter [your passwd]:" >&2
+        passwd=`echo ${passwd}|sed 's/^aes256://'|openssl enc -aes256 -d -a` >&2
+        if [ 0 != $? ]
+        then
+            echo "[your passwd] error" >&2
+            exit
+        fi
+    else
+        echo "[ ${host} ] "${comm:1} -u${user} -P${port} -p${passwd} -h${hostname} ${param_database} >&2
+        passwd=$passwd
+    fi
+fi
+
+case $# in
+    1)
+        ${comm:1} -u${user} -P${port} -p${passwd} -h${hostname} ${param_database}
+        ;;
+    2)
+        ${comm:1} -u${user} -P${port} -p${passwd} -h${hostname} ${param_database} "${2}"
+        ;;
+    3)
+        ${comm:1} -u${user} -P${port} -p${passwd} -h${hostname} ${param_database} "${2}" "${3}"
+        ;;
+    4)
+        ${comm:1} -u${user} -P${port} -p${passwd} -h${hostname} ${param_database} "${2}" "${3}" "${4}"
+        ;;
+    5)
+        ${comm:1} -u${user} -P${port} -p${passwd} -h${hostname} ${param_database} "${2}" "${3}" "${4}" "${5}"
+        ;;
+    6)
+        ${comm:1} -u${user} -P${port} -p${passwd} -h${hostname} ${param_database} "${2}" "${3}" "${4}" "${5}" "${6}"
+        ;;
+    7)
+        ${comm:1} -u${user} -P${port} -p${passwd} -h${hostname} ${param_database} "${2}" "${3}" "${4}" "${5}" "${6}" "${7}"
+        ;;
+    8)
+        ${comm:1} -u${user} -P${port} -p${passwd} -h${hostname} ${param_database} "${2}" "${3}" "${4}" "${5}" "${6}" "${7}" "${8}"
+        ;;
+    9)
+        ${comm:1} -u${user} -P${port} -p${passwd} -h${hostname} ${param_database} "${2}" "${3}" "${4}" "${5}" "${6}" "${7}" "${8}" "${9}"
+        ;;
+    10)
+        ${comm:1} -u${user} -P${port} -p${passwd} -h${hostname} ${param_database} "${2}" "${3}" "${4}" "${5}" "${6}" "${7}" "${8}" "${9}" "${10}"
+        ;;
+    *)
+        echo "bad num of args: ${#}"
+        ;;
+esac
+
+fi

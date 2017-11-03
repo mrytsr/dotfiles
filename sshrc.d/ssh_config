@@ -1,0 +1,86 @@
+Host git.oschina.net
+    User git
+     
+Host gitcafe.com
+    User mrytsr
+
+Host github.com
+    User mrytsr
+
+Host s1
+    hostname s1.appshare.cn
+    port 8689
+
+Host s2slow
+    hostname 203.166.188.31
+    port 8689
+
+Host s2
+    hostname 211.152.43.131
+    port 8689
+
+Host s3
+    hostname s3.appshare.cn
+    port 8689
+
+Host s5
+    user tangjunxing
+    hostname 192.168.0.35
+
+Host s6
+    user tangjunxing
+    hostname 192.168.0.36
+
+Host s4
+    hostname s4.appshare.cn
+    port 8689
+
+host 21scp
+    hostname dev.idaddy.cn
+    user tjxscp
+
+host 201
+    hostname 192.168.0.201
+    user tangjunxing
+
+host 21
+    hostname dev.idaddy.cn
+    user tangjunxing
+
+host 22
+    hostname wt2.idaddy.cn
+    user tangjunxing
+
+Host dev
+    IdentityFile ~/.ssh/id_rsa
+    hostname 222.73.201.99
+    port 8689
+
+Host lan-server
+    Compression false
+    hostname 192.168.1.28
+
+Host elk
+    Compression false
+    hostname 192.168.1.28
+
+Host sh
+    port 1628
+    Hostname sh.tjx.be
+
+Host back
+    port 10002
+    hostname localhost
+
+Host *
+    User tjx
+    Compression true
+    ForwardAgent yes
+    # TCPKeepAlive=yes
+    # ServerAliveInterval=15
+    # ServerAliveCountMax=6
+    # Compression=yes
+    # ControlMaster auto
+    # ControlPath /tmp/%r@%h:%p
+    # ControlPersist yes
+    IdentityFile ~/.ssh/id_rsa.rhinox

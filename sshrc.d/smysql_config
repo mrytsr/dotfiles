@@ -1,0 +1,67 @@
+host 201open
+hostname 192.168.0.33
+port 3306
+user open_user
+passwd 6D8DB406953
+database appshare
+
+host s3video
+hostname 192.168.0.33
+port 33061
+user video_user
+passwd F517FE7E2
+database video
+
+host s3
+hostname 192.168.0.33
+passwd aes256:U2FsdGVkX18hXu2KRv+22c4KyHvE80icTcpFfwwKbqg=
+user apsdev 
+database appshare
+
+host 21
+hostname 192.168.1.21
+port 3306
+user tjx
+passwd 94E5696b
+
+host 21appshare
+hostname 192.168.1.21
+port 3306
+user apsdev
+passwd apsdev602
+database appshare
+
+host 21video
+hostname 192.168.1.21
+port 3309
+user apsdev
+passwd aes256:U2FsdGVkX1+4Gc9lZhgNbwTlFkeBqJKFtasMDTlk7tU=
+database video
+
+host 22ecmall
+hostname 192.168.1.22
+port 3308
+user tjx
+passwd 94E5696b
+database ecmall
+
+host 201log
+hostname 192.168.1.201
+port 14301
+user lbs
+passwd B997354A42990D94
+database appshare_log
+
+host elk
+hostname localhost
+port 3306
+user root
+passwd b5c19535-ce42-4bd8-acc5-babfd2a83b30
+database appshare # nihao
+
+host 0127scrapy
+user selecter
+passwd aes256:U2FsdGVkX1+Q5kHQ75xE25Fnfndyq/yfTCPkeednroiTEBbYHerWPCx3iCBiUE1f
+port 3306
+hostname localhost
+database scrapy

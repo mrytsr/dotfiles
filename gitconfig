@@ -1,0 +1,40 @@
+[user]
+	email = tangjunxing@bilibili.cn
+	name = tangjunxing
+[core]  
+    editor = vi
+[color]
+	status = auto
+	diff = auto
+	branch = auto
+	interactive = auto
+	ui = auto
+[alias]
+    aa = add --all
+    ba = branch -ra
+    bd = branch -d
+	br = branch
+    bv = branch -vv
+    ca = commit --amend
+    cb = checkout -b
+    ci = commit -a -v
+    cm = commit -a --amend -C HEAD
+	co = checkout
+    di = diff
+    ld = log --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short --graph
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+    mm = merge --no-ff
+    pu = push --tags
+    st = status --short --branch
+    tg = tag -a 
+    uh = reset --hard HEAD^
+    un = reset --hard HEAD  
+[push]
+	default = current
+[branch]  
+    autosetuprebase = always
+[merge]
+	tool = vimdiff
+[http]
+	proxy = http://127.0.0.1:1081

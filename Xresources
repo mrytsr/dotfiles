@@ -1,0 +1,29 @@
+XTerm*visualBell: false
+xterm*charClass: 33:48, 37:48, 42:48, 45-47:48, 58:48, 63-64:48, 126:48
+XTerm*selectToClipboard: true
+/*xterm*locale: zh_CN.UTF-8*/
+xterm*rightScrollBar: true
+xterm*saveLines: 102400
+xterm*scrollBar: false
+xterm.termName: xterm-256color
+xft.rgba: rgb
+xpdf.title: PDF
+xterm*metaSendsEscape:  true
+*colorBD: white
+*colorUL: yellow
+*cursorBlink: false
+*foreground:  gray
+*loginshell: true
+xft.antialias: true
+xft.dpi: 96
+xft.hinting: true
+xft.hintstyle: hintslight
+xterm.borderLess: true
+xterm*faceNameDoublesize: WenQuanYi Micro Hei:antialias=true
+xterm*faceName: Courier 10 Pitch:style=Regular:antialias=false:size=15
+/* Xterm*faceSize: 18 */
+xterm.geometry: 80x36
+*xterm*background: #101010
+*xterm*foreground: #d0d0d0
+*xterm*cursorColor: #d0d0d0
+*xterm*color0: #101010
