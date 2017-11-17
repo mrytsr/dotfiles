@@ -1,9 +1,11 @@
-termcapinfo xterm* ti@:te@
-escape ^Ss
-altscreen on
-vbell off
-maptimeout 0
-defc1 off
-caption always "%{= dd}%-Lw%45L>%{+bu}%n %t%{-}%+Lw%-09< %= %D %m-%d %c"
-shell bash
-shelltitle "$ |bash"
+
+termcapinfo xterm* ti@:te@ 
+escape ^Ss 
+altscreen on 
+vbell off 
+maptimeout 0 
+defc1 off 
+caption always "%{= dd}%-Lw%45L>%{+bu}%n %t%{-}%+Lw%-09< %= %D %m-%d %c" 
+shell bash 
+shelltitle "$ |bash" 
+

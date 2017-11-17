@@ -198,3 +198,5 @@ _yargs_completions()
 complete -F _yargs_completions leetcode
 ###-end-leetcode-completions-###
 
+
+export PATH="$HOME/.yarn/bin:$PATH"
